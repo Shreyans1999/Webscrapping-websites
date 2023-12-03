@@ -51,14 +51,21 @@ def get_snapdeal_product_info(url):
 # Amazon URL
 amazon_url = 'https://www.amazon.in/iQOO-MediaTek-Dimesity-Processor-Smartphone/dp/B07WGPJPR3/?_encoding=UTF8&pd_rd_w=ghs0w&content-id=amzn1.sym.aff93425-4e25-4d86-babd-0fa9faf7ca5d%3Aamzn1.symc.36bd837a-d66d-47d1-8457-ffe9a9f3ddab&pf_rd_p=aff93425-4e25-4d86-babd-0fa9faf7ca5d&pf_rd_r=G81YVXJCN38XKSZXY3XJ&pd_rd_wg=xP27a&pd_rd_r=7887e8b7-b072-44f9-9756-d4e58af5c263&ref_=pd_gw_ci_mcx_mr_hp_atf_m'
 
+trun_amazon=amazon_url.split('.');
+trun_amazon=trun_amazon[1]
+
 # Snapdeal URL
 snapdeal_url = 'https://www.snapdeal.com/product/asian-tan-running-shoes/7493990459833733520'
+
+trun_snap=snapdeal_url.split('.');
+trun_snap=trun_snap[1]
 
 
 # Get Amazon product details
 amazon_product_info = get_amazon_product_info(amazon_url)
 if amazon_product_info:
     print("\nAmazon Product Details:")
+    print(f"Website_Name: {trun_amazon}")
     print(f"Name: {amazon_product_info['Product Name']}")
     print(f"Price: {amazon_product_info['Product Price']}")
 else:
@@ -68,6 +75,7 @@ else:
 snapdeal_product_info = get_snapdeal_product_info(snapdeal_url)
 if snapdeal_product_info:
     print("\nsnapdeal Product Details:")
+    print(f"Website_Name: {trun_snap}")
     print(f"Name: {snapdeal_product_info['Product Name']}")
     print(f"Price: ₹{snapdeal_product_info['Product Price']}")
 else:
